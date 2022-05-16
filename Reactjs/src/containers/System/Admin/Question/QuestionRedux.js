@@ -264,7 +264,11 @@ question: this.state.question,
             answerFalse3
         } = this.state;
 let searchVocabArr = this.props.search
+<<<<<<< HEAD
         let listLessonListsArr = this.props.listLessonLists
+=======
+let listLessonListsArr = this.props.listLessonLists
+>>>>>>> 27c0528179d7609931f17f548f536c6a342a257b
         // console.log("check state:", this.state);
         let vocabArr = this.props.vocabArr
         console.log("vocabArr", vocabArr);
@@ -321,7 +325,11 @@ let searchVocabArr = this.props.search
                                 />
                             </div>
                             <div className="form-group col-4 mt-2">
+<<<<<<< HEAD
                             <label><FormattedMessage id="manage-question.vocab"/></label>
+=======
+<label><FormattedMessage id="manage-question.vocab"/></label>
+>>>>>>> 27c0528179d7609931f17f548f536c6a342a257b
                                 <select className='form-control'
                                     onChange={(event) => { this.onChangeInput(event, 'answerTrue') }}
                                     onClick={(event) => {this.handleOnclickanswerTrue()}}
@@ -370,7 +378,7 @@ let searchVocabArr = this.props.search
                             <div className="form-group col-4 mt-2">
                                 <label><FormattedMessage id="manage-question.answer-false2"/></label>
                                 <select className='form-control'
-                                    onChange={(event) => { this.onChangeInput(event, 'answerFalse2') }}
+onChange={(event) => { this.onChangeInput(event, 'answerFalse2') }}
                                     onClick={(event) => {this.handleOnclickanswerFalse2()}}
                                     value={answerFalse2}
                                 >
@@ -417,7 +425,7 @@ let searchVocabArr = this.props.search
                                         <FormattedMessage id="manage-lesson-item.save"/>
                                     }
                                 </button>
-                            </div>
+</div>
                         </div>
                 
                         <div className="row">

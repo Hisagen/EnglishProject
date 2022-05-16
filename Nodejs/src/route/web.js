@@ -64,6 +64,7 @@ let initWebRoutes = (app) => {
     router.delete('/api/delete-lesson-lessonlist', lessonLessonListController.handleDeleteLessonLessonList);
 
     router.get('/api/lesson-item-home', lessonLessonListController.getLessonItemHome);
+    router.get(`/api/getAllLessonFromlessonListId`, lessonLessonListController.getAllLessonFromlessonListId)
 
 
     //vocab
@@ -86,9 +87,17 @@ let initWebRoutes = (app) => {
     router.put('/api/edit-question', questionController.handleEditQuestion);
     router.delete('/api/delete-question', questionController.handleDeleteQuestion);
     router.post('/api/create-choise-answer', questionController.handleChoiseAnswer);
+<<<<<<< HEAD
     router.get('/api/question-home', questionController.getQuestionHome);
 
 
+=======
+    router.get(`/api/tronbang`, questionController.tronbang);
+    router.get(`/api/checkQueston`, questionController.checkQueston);
+    router.get(`/api/getQuestionFromLessonId`, questionController.getQuestionFromLessonId);
+    
+    
+>>>>>>> 27c0528179d7609931f17f548f536c6a342a257b
     // router.get('/api/search-vocab', vocabController.handleSearchVocab);
 
     return app.use("/", router);

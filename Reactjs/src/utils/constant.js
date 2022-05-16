@@ -2,8 +2,12 @@ export const path = {
     HOME: '/',
     HOMEPAGE: '/home',
     TOPIC: '/topic',
+<<<<<<< HEAD
     LESSON: '/lesson',
     QUESTION: './question',
+=======
+    LESSON: '/lesson/:id',
+>>>>>>> 27c0528179d7609931f17f548f536c6a342a257b
     LESSONLIST: '/lesson-list/:id',
     DICTIONARY: '/dictionary',
     LESSONITEM: '/lesson-item',

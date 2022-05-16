@@ -31,7 +31,7 @@ const initialState = {
 
 
     searchWordMeaning: [],
-
+    LessonItemsFromLessonlistId: [],
 
 }
 
@@ -202,7 +202,16 @@ const adminReducer = (state = initialState, action) => {
             return {
                 ...state,
             }
-
+        case actionTypes.FETCH_ALL_LESSON_ITEMS_FROM_LESSONLISTID_SUCCESS:
+                state.LessonItemsFromLessonlistId = action.LessonItemsFromLessonlistId;
+                return {
+                    ...state,
+                }
+        case actionTypes.FETCH_ALL_LESSON_ITEMS_FROM_LESSONLISTID_FAILD:
+                state.LessonItemsFromLessonlistId = [];
+                return {
+                    ...state,
+                }
         //search
         case actionTypes.FETCH_ALL_SEARCH_VOCABS_SUCCESS:
             state.search = action.search;
