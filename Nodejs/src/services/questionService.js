@@ -2,7 +2,7 @@ import db from "../models/index";
 import bcrypt from "bcryptjs";
 import { getSearchVocabFromLession } from "./lessonLessonListService"
 
-let getSearchVocabFromLessionInQuesson = (id) => {
+let getSearchVocabFromLessonInQuestion = (id) => {
     return new Promise(async(resolve, reject) => {
         try{
             let searchFromQuestion = await db.Vocab.findAll({
@@ -231,7 +231,7 @@ module.exports = {
     getAllQuestions: getAllQuestions,
     updateQuestionData: updateQuestionData,
     deleteQuestion: deleteQuestion,
-    getSearchVocabFromLessionInQuesson: getSearchVocabFromLessionInQuesson,
+    getSearchVocabFromLessonInQuestion: getSearchVocabFromLessonInQuestion,
     createChoiseAnswer: createChoiseAnswer,
     getQuestionHome: getQuestionHome
 }

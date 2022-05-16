@@ -82,7 +82,7 @@ class QuestionRedux extends Component {
 
         })
         this.props.fetchAllSearchVocabsStart(this.props.match.params.id);
-        this.props.fetchAllLessonListsStart()
+this.props.fetchAllLessonListsStart()
         this.state.answerTrue =  vocabName.search[0].vocab // gán mặc định answerTrue
          let mangtemp = await createChoiseAnswerService({
             lessonId: this.props.match.params.id,
@@ -163,7 +163,7 @@ class QuestionRedux extends Component {
             //fire redux edit lesson list
             this.props.editAQuestionRedux({
                 id: this.state.questionEditId,
-                question: this.state.question,
+question: this.state.question,
                 answerTrue: this.state.answerTrue,
                 answerFalse1: this.state.answerFalse1,
                 answerFalse2: this.state.answerFalse2,
@@ -201,7 +201,7 @@ class QuestionRedux extends Component {
 
     handleOnclickanswerTrue = async () => 
     {
-        this.props.fetchAllSearchWordMeaningToVocabsStart(this.state.answerTrue)
+        this.props.fetchAllSearchWordMeaningToVocabsStart(this.state.vocabId)
         let mangtemp = []
         mangtemp = await createChoiseAnswerService({
             lessonId: this.props.match.params.id,
@@ -263,8 +263,7 @@ class QuestionRedux extends Component {
             answerFalse2,
             answerFalse3
         } = this.state;
-
-        let searchVocabArr = this.props.search
+let searchVocabArr = this.props.search
         let listLessonListsArr = this.props.listLessonLists
         // console.log("check state:", this.state);
         let vocabArr = this.props.vocabArr
@@ -321,8 +320,7 @@ class QuestionRedux extends Component {
                                     disabled
                                 />
                             </div>
-
-                            {/* <div className="form-group col-4 mt-2">
+                            <div className="form-group col-4 mt-2">
                             <label><FormattedMessage id="manage-question.vocab"/></label>
                                 <select className='form-control'
                                     onChange={(event) => { this.onChangeInput(event, 'answerTrue') }}
@@ -339,47 +337,9 @@ class QuestionRedux extends Component {
                                         })
                                     }
                                 </select>
-                            </div> */}
-
-                            <div className="form-group col-4 mt-2">
-                            <label><FormattedMessage id="manage-question.vocab"/></label>
-                                <select className='form-control'
-                                    onChange={(event) => { this.onChangeInput(event, 'answerTrue') }}
-                                    onClick={(event) => {this.handleOnclickanswerTrue()}}
-                                    value={answerTrue}
-                                >
-                                    {arr && arr.length > 0 &&
-                                        arr.map((item, index) => {
-                                            return (
-                                                <option key={index} value={item.id}>
-                                                    {item.vocab}
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </select>
                             </div>
 
                             <div className="form-group col-8 mt-2">
-                            <label><FormattedMessage id="manage-question.vocab"/></label>
-                                <select className='form-control'
-                                    onChange={(event) => { this.onChangeInput(event, 'question') }}
-                                    // onClick={(event) => {this.handleOnclickanswerTrue()}}
-                                    value={question}
-                                >
-                                    {arr && arr.length > 0 &&
-                                        arr.map((item, index) => {
-                                            return (
-                                                <option key={index} value={item.id}>
-                                                    {item.vocabData.wordmeaning}
-                                                </option>
-                                            )
-                                        })
-                                    }
-                                </select>
-                            </div>
-
-                            {/* <div className="form-group col-8 mt-2">
                                 <label><FormattedMessage id="manage-question.question"/></label>
                                 <input
                                     type="text" 
@@ -387,7 +347,7 @@ class QuestionRedux extends Component {
                                     onChange={(event) => {this.onChangeInput(event, "question")}}
                                     value={question}
                                 />
-                            </div> */}
+                            </div>
 
                             <div className="form-group col-4 mt-2">
                                 <label><FormattedMessage id="manage-question.answer-false1"/></label>
@@ -479,7 +439,7 @@ const mapStateToProps = state => {
     return {
         language: state.app.language,
         listLessons: state.admin.lessons,
-        listQuestions: state.admin.questions,
+listQuestions: state.admin.questions,
         search: state.admin.search,
         listLessonItems: state.admin.lessonLessonLists,
         listLessonLists: state.admin.lessonLists,

@@ -27,6 +27,8 @@ const initialState = {
 
     vocabArr: [],
     questions: [],
+    topQuestions: [],
+
 
     searchWordMeaning: [],
 
@@ -265,17 +267,17 @@ const adminReducer = (state = initialState, action) => {
             }
         /////////////////////////
 
-        // case actionTypes.FETCH_TOP_LESSON_LISTS_SUCCESS:
-        //     state.topLessonLists = action.dataLessonLists;
-        //     return {
-        //         ...state,
-        //     }
+        case actionTypes.FETCH_TOP_QUESTIONS_SUCCESS:
+            state.topQuestions = action.dataQuestions;
+            return {
+                ...state,
+            }
 
-        // case actionTypes.FETCH_TOP_LESSON_LISTS_FAILD:
-        //     state.topLessonLists = [];
-        //     return {
-        //         ...state,
-        //     }
+        case actionTypes.FETCH_TOP_QUESTIONS_FAILD:
+            state.topQuestions = [];
+            return {
+                ...state,
+            }
         
         default:
             return state;

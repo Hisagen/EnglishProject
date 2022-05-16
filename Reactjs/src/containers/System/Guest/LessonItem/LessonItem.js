@@ -13,7 +13,8 @@ class LessonItem extends Component {
     constructor(props){
         super(props)
         this.state = {
-            arrLessonItems: []
+            arrLessonItems: [],
+            arrQuestions: []
         }
     }
 
@@ -23,27 +24,37 @@ class LessonItem extends Component {
                 arrLessonItems: this.props.topLessonItemsRedux
             })
         }
+        if(prevProps.topQuestionsRedux !== this.props.topQuestionsRedux){
+            this.setState({
+                arrQuestions: this.props.topQuestionsRedux
+            })
+        }
     }
 
     componentDidMount() {
         this.props.loadTopLessonItems();
         this.props.fetchAllLessonItemsStart();
+
+        this.props.fetchTopQuestionList();
+        this.props.fetchAllQuestionsStart();
     }
 
     render() {
-        console.log('check topLessonItemsRedux: ', this.props.topLessonItemsRedux);
+        // console.log('check topLessonItemsRedux: ', this.props.topLessonItemsRedux);
+        console.log('check topQuestionsRedux: ', this.props.topQuestionsRedux);
+        let allQuestions = this.state.arrQuestions;
         let { language } = this.props
         let allLessonItems = this.state.arrLessonItems;
         console.log("check 123456:", allLessonItems)
         return (
             <div>
                 <HomeHeader />
-                {/* <div className="container">     
+                <div className="container">     
                     <div className="row">
                         <div className="col-3"></div>
                         <div className="col-6">
-                            {allLessonItems && allLessonItems.length > 0
-                                && allLessonItems.map((item, index) => {
+                            {allQuestions && allQuestions.length > 0
+                                && allQuestions.map((item, index) => {
                   
                                     let nameVi = `${item.lessonName}`;
                                     let nameEn = `${item.lessonName}`;
@@ -64,7 +75,7 @@ class LessonItem extends Component {
                         </div>
                         <div className="col-3"></div>
                     </div>
-                </div> */}
+                </div>
             </div>
             );
         }
@@ -74,14 +85,17 @@ class LessonItem extends Component {
         return {
             language: state.app.language,
             isLoggedIn: state.user.isLoggedIn,
-            topLessonItemsRedux: state.admin.topLessonItems
+            topLessonItemsRedux: state.admin.topLessonItems,
+            topQuestionsRedux: state.admin.topQuestions
         };
     };
-    
+
     const mapDispatchToProps = dispatch => {
         return {
             loadTopLessonItems: () => dispatch(actions.fetchTopLessonItem()),
-            fetchAllLessonItemsStart: () => dispatch(actions.fetchAllLessonItemsStart())
+            fetchAllLessonItemsStart: () => dispatch(actions.fetchAllLessonItemsStart()),
+            fetchTopQuestionList: () => dispatch(actions.fetchTopQuestionList()),
+            fetchAllQuestionsStart: () => dispatch(actions.fetchAllQuestionsStart())
         };
     };
     

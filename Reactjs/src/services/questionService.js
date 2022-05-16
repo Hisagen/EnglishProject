@@ -22,9 +22,9 @@ const editQuestionService = (inputData) => {
     return axios.put('/api/edit-question', inputData);
 }
 
-// const getQuestionHomeService = (limit) => {
-//     return axios.get(`/api/lesson-list-home?limit=${limit}`)
-// }
+const getQuestionHomeService = (limit) => {
+    return axios.get(`/api/question-home?limit=${limit}`)
+}
 
 
 const createChoiseAnswerService = (data) => {
@@ -38,4 +38,5 @@ export {
     deleteQuestionService,
     editQuestionService,
     createChoiseAnswerService,
+    getQuestionHomeService
 }

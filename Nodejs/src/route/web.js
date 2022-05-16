@@ -86,6 +86,7 @@ let initWebRoutes = (app) => {
     router.put('/api/edit-question', questionController.handleEditQuestion);
     router.delete('/api/delete-question', questionController.handleDeleteQuestion);
     router.post('/api/create-choise-answer', questionController.handleChoiseAnswer);
+    router.get('/api/question-home', questionController.getQuestionHome);
 
 
     // router.get('/api/search-vocab', vocabController.handleSearchVocab);

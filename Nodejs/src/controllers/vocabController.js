@@ -52,7 +52,7 @@ let handleSearchVocabInQuestion = async(req, res) => {
             searchFromQuestion: []
         })
     }
-    let searchFromQuestion = await questionService.getSearchVocabFromLessionInQuesson(id);
+    let searchFromQuestion = await questionService.getSearchVocabFromLessonInQuestion(id);
     return res.status(200).json({
         errCode: 0,
         errMessage: 'Ok',
